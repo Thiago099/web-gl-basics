@@ -51,5 +51,5 @@ function WebGL(canvas, vertex, fragment)
     {
         gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
-    return {draw,buffer}
+    return { draw, buffer }
 }
