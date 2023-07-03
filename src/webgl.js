@@ -46,10 +46,19 @@ function WebGL(canvas, vertex, fragment)
         return { bind }
     }
 
+    function uniform(type,name)
+    {
+        const location = gl.getUniformLocation(program, name)
+        function bind(value)
+        {
+            gl["uniform"+type](location, value)
+        }
+        return { bind }
+    }
 
     function draw()
     {
         gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
-    return { draw, buffer }
+    return { draw, buffer, uniform }
 }
