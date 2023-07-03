@@ -46,12 +46,12 @@ function WebGL(canvas, vertex, fragment)
         return { bind }
     }
 
-    function uniform(type,name)
+    function uniform(type, name)
     {
         const location = gl.getUniformLocation(program, name)
-        function bind(value)
+        function bind(...value)
         {
-            gl["uniform"+type](location, value)
+            gl["uniform"+type](location, ...value)
         }
         return { bind }
     }
